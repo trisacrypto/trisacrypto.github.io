@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Documentation - TRISA</title>
+<meta name="description" content="Travel Rule Information Sharing Architecture for Virtual Asset Service Providers">
+<meta name="generator" content="Hugo 0.61.0" />
+<link href="https://trisacrypto.github.io/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://trisacrypto.github.io/contributing/documentation/">
+<link rel="stylesheet" href="https://trisacrypto.github.io/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://trisacrypto.github.io/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://trisacrypto.github.io/js/bundle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151235008-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-151235008-1');
+</script>
+<style>
+:root {}
+</style>
+<meta property="og:title" content="Documentation" />
+<meta property="og:description" content="Overview All TRISA related documentation is maintained at Github. From there the documentation website is automatically generated and hosted on Github Pages.
+For quick edits to fix typos or make minor changes, there is a convenience link at the bottom of each page to directly edit the content on Github directly. From there you can follow the prompts to submit your pull request for review.
+Prerequisites The TRISA repository contains the necessary tooling to run the documentation website on your machine." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://trisacrypto.github.io/contributing/documentation/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Documentation"/>
+<meta name="twitter:description" content="Overview All TRISA related documentation is maintained at Github. From there the documentation website is automatically generated and hosted on Github Pages.
+For quick edits to fix typos or make minor changes, there is a convenience link at the bottom of each page to directly edit the content on Github directly. From there you can follow the prompts to submit your pull request for review.
+Prerequisites The TRISA repository contains the necessary tooling to run the documentation website on your machine."/>
+<meta itemprop="name" content="Documentation">
+<meta itemprop="description" content="Overview All TRISA related documentation is maintained at Github. From there the documentation website is automatically generated and hosted on Github Pages.
+For quick edits to fix typos or make minor changes, there is a convenience link at the bottom of each page to directly edit the content on Github directly. From there you can follow the prompts to submit your pull request for review.
+Prerequisites The TRISA repository contains the necessary tooling to run the documentation website on your machine.">
+
+<meta itemprop="wordCount" content="478">
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>TRISA</h1>
+<a href="https://github.com/trisacrypto/trisa" class="github"><i class="fab fa-github"></i></a>
+<p class="description">Travel Rule Information Sharing Architecture for Virtual Asset Service Providers</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/white-papers/white-paper-trisa-v5.pdf">White Paper</a></li>
+<li><a href="/architecture">Architecture</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>Documentation</h1>
+<h2 id="overview">Overview</h2>
+<p>All TRISA related documentation is maintained at <a href="https://github.com/trisacrypto/trisa/tree/master/docs">Github</a>.
+From there the documentation website is automatically generated and hosted on <a href="https://trisacrypto.github.io/">Github Pages</a>.</p>
+<p>For quick edits to fix typos or make minor changes, there is a convenience link at the bottom of each page to directly
+edit the content on Github directly. From there you can follow the prompts to submit your pull request for review.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>The TRISA repository contains the necessary tooling to run the documentation website on your machine. This will allow
+you to make updates to the content and inspect the results before submitting your changes.</p>
+<p>You only need to have <a href="https://git-scm.com/">Git</a> and <a href="https://docs.docker.com/">Docker</a> installed on your system:</p>
+<ul>
+<li><a href="https://docs.docker.com/install/">Docker Engine Community for Linux</a></li>
+<li><a href="https://docs.docker.com/docker-for-mac/install/">Install Docker Desktop on Mac</a></li>
+<li><a href="https://docs.docker.com/docker-for-windows/install/">Install Docker Desktop on Windows</a></li>
+</ul>
+<h2 id="setup-your-git-directory">Setup your git directory</h2>
+<p>Browse to the <a href="https://github.com/trisacrypto/trisa">TRISA repository</a> and click on <code>fork</code> on the right top. Github
+will create the fork for you and will be available on <code>https://github.com/&lt;YOUR-USERNAME&gt;/trisa</code>.</p>
+<p>Follow these steps to setup your git directory using your fork (<code>origin</code>) and the main repository (<code>upstream</code>). The
+example commands are executed from your home directory.</p>
+<pre><code>git clone git@github.com:&lt;YOUR-USERNAME&gt;/trisa.git/trisa
+cd trisa
+git remote add upstream git@github.com:trisacrypto/trisa.git
+git fetch upstream
+git submodule init
+git submodule update
+</code></pre><h2 id="running-the-doc-website">Running the doc website</h2>
+<p>Before making any changes, make sure you have the latest version from the upstream repository. To do so,
+perform the following steps from within the <code>trisa</code> directory.</p>
+<pre><code>git fetch upstream
+git rebase upstream/master
+</code></pre><p>To run and preview the documentation website on your machine:</p>
+<ul>
+<li>Run <code>make docs-dev</code> to start the web server</li>
+<li>Browse to <code>http://127.0.0.1:1313</code></li>
+</ul>
+<p>The development web server will automatically reload when you make changes to the content files which are
+located under <code>docs/content</code>. If the preview becomes cluttered, you can always termianted the web server
+using <code>CTRL+C</code> and running the <code>make docs-dev</code> command again to reinitialize.</p>
+<h2 id="formatting">Formatting</h2>
+<p>We are making us of <a href="https://gohugo.io/">Gohugo</a> to generate the content using markdown <code>md</code> files. You can
+use existing pages as an example to format your text. Additional information is available on the
+<a href="https://gohugo.io/content-management/">Gohugo documentation section</a>.</p>
+<p>This website is powered by the <a href="https://themes.gohugo.io/hugo-theme-techdoc/">techdoc theme</a>. The
+<a href="https://themes.gohugo.io//theme/hugo-theme-techdoc/sample/build-in-shortcodes/">example website</a> contains
+a rich set of available formatting options. The code for these pages can be found under
+<code>docs/themes/hugo-theme-techdoc/exampleSite</code> for your reference.</p>
+<h2 id="creating-your-pull-request">Creating your pull request</h2>
+<p>Once you are happy with your changes, you can stop the documentation web server and push the changes to
+your fork. Perform the following steps from your <code>trisa</code> directory:</p>
+<pre><code>git add docs/content
+git commit -m &quot;Your commit message, i.e. adding new diagram&quot;
+git push origin master:my-doc-changes
+</code></pre><p>Now you can browse to <code>https://github.com/&lt;YOUR-USERNAME&gt;/trisa</code> and click on &ldquo;Create Pull Request&rdquo; from
+the yellow popup box. Make sure to create the pull request against the <code>master</code> branch of the upstream
+<code>trisacrypto/trisa</code> repository.</p>
+<p>Your pull request will be reviewed and merged when approved. When your pull request is merged, the changes
+are automatically pushed the the <a href="https://trisacrypto.github.io/">TRISA website</a>.</p>
+<div class="edit-meta">
+
+<br><a href="https://github.com/trisacrypto/trisa/edit/master/docs/content/contributing/documentation.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="/contributing/bylaws/" title="Bylaws"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Bylaws</a>
+<a class="nav nav-next" href="/contributing/license/" title="License">Next - License <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main><div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="https://trisacrypto.github.io/">Home</a></li>
+
+<li class=""><a href="/architecture/">Architecture</a>
+  
+</li>
+
+<li class=""><a href="/conference/">TRISA Conference 2019</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="/conference/hackathon/">Hackathon</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="/getting_started/">Getting Started</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="/getting_started/demo/">Demo</a></li>
+<li class=""><a href="/getting_started/dev/">Development</a></li>
+<li class=""><a href="/getting_started/testnet/">TRISA TESTNET</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="/trisa_improvement_proposal/">TRISA Improvement Proposals</a>
+  
+</li>
+
+<li class="parent"><a href="/contributing/">Contributing</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="/contributing/bylaws/">Bylaws</a></li>
+<li class="active"><a href="/contributing/documentation/">Documentation</a></li>
+<li class=""><a href="/contributing/license/">License</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

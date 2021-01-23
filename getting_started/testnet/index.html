@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>TRISA TESTNET - TRISA</title>
+<meta name="description" content="Travel Rule Information Sharing Architecture for Virtual Asset Service Providers">
+<meta name="generator" content="Hugo 0.61.0" />
+<link href="https://trisacrypto.github.io/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://trisacrypto.github.io/getting_started/testnet/">
+<link rel="stylesheet" href="https://trisacrypto.github.io/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://trisacrypto.github.io/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://trisacrypto.github.io/js/bundle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151235008-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-151235008-1');
+</script>
+<style>
+:root {}
+</style>
+<meta property="og:title" content="TRISA TESTNET" />
+<meta property="og:description" content="Introduction For testing purposes to develop new clients and integrations, we have a test PKI available and some VASP nodes running the latest version of TRISA server. This allows for full integration testing without disturbing the production TRISA network mesh.
+Test VASP nodes The following VASP nodes are available for testing:
+ vasp1.testnet.trisa.io vasp2.testnet.trisa.io vasp3.testnet.trisa.io  Each VASP uses port 8888 for the gRPC peer-to-peer communication and port 9999 for its admin endpoints." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://trisacrypto.github.io/getting_started/testnet/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="TRISA TESTNET"/>
+<meta name="twitter:description" content="Introduction For testing purposes to develop new clients and integrations, we have a test PKI available and some VASP nodes running the latest version of TRISA server. This allows for full integration testing without disturbing the production TRISA network mesh.
+Test VASP nodes The following VASP nodes are available for testing:
+ vasp1.testnet.trisa.io vasp2.testnet.trisa.io vasp3.testnet.trisa.io  Each VASP uses port 8888 for the gRPC peer-to-peer communication and port 9999 for its admin endpoints."/>
+<meta itemprop="name" content="TRISA TESTNET">
+<meta itemprop="description" content="Introduction For testing purposes to develop new clients and integrations, we have a test PKI available and some VASP nodes running the latest version of TRISA server. This allows for full integration testing without disturbing the production TRISA network mesh.
+Test VASP nodes The following VASP nodes are available for testing:
+ vasp1.testnet.trisa.io vasp2.testnet.trisa.io vasp3.testnet.trisa.io  Each VASP uses port 8888 for the gRPC peer-to-peer communication and port 9999 for its admin endpoints.">
+
+<meta itemprop="wordCount" content="991">
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>TRISA</h1>
+<a href="https://github.com/trisacrypto/trisa" class="github"><i class="fab fa-github"></i></a>
+<p class="description">Travel Rule Information Sharing Architecture for Virtual Asset Service Providers</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/white-papers/white-paper-trisa-v5.pdf">White Paper</a></li>
+<li><a href="/architecture">Architecture</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>TRISA TESTNET</h1>
+<h2 id="introduction">Introduction</h2>
+<p>For testing purposes to develop new clients and integrations, we have a test PKI available and some VASP nodes
+running the latest version of TRISA server. This allows for full integration testing without disturbing the
+production TRISA network mesh.</p>
+<h2 id="test-vasp-nodes">Test VASP nodes</h2>
+<p>The following VASP nodes are available for testing:</p>
+<ul>
+<li>vasp1.testnet.trisa.io</li>
+<li>vasp2.testnet.trisa.io</li>
+<li>vasp3.testnet.trisa.io</li>
+</ul>
+<p>Each VASP uses port <em><strong>8888</strong></em> for the <em><strong>gRPC peer-to-peer</strong></em> communication and port <em><strong>9999</strong></em> for its <em><strong>admin</strong></em> endpoints.</p>
+<h2 id="connecting-your-own-node-to-the-trisa-testnet">Connecting your own node to the TRISA TESTNET</h2>
+<h3 id="configuration">Configuration</h3>
+<p>The TRISA server node accepts a <code>--config</code> command line argument with the path and filename of a configuration file which
+specifies where the node can find its private key, certificate and the trust chain as well as what ports and
+hostname to use.</p>
+<p>Here is a sample configuration file: <strong><a href="/testnet/config/config.yaml">config.yaml</a></strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">tls<span class="p">:</span><span class="w">
+</span><span class="w">  </span>privateKeyFile<span class="p">:</span><span class="w"> </span>server.key<span class="w">
+</span><span class="w">  </span>certificateFile<span class="p">:</span><span class="w"> </span>server.crt<span class="w">
+</span><span class="w">  </span>trustChain<span class="p">:</span><span class="w"> </span>trust.chain<span class="w">
+</span><span class="w"></span>server<span class="p">:</span><span class="w">
+</span><span class="w">  </span>listenAddress<span class="p">:</span><span class="w"> </span><span class="p">:</span><span class="m">8888</span><span class="w">
+</span><span class="w">  </span>listenAddressAdmin<span class="p">:</span><span class="w"> </span><span class="p">:</span><span class="m">9999</span><span class="w">
+</span><span class="w">  </span>hostname<span class="p">:</span><span class="w"> </span>myOwnVasp<span class="w">
+</span></code></pre></div><p>The tls entries are all reference to filenames in which to find the artificats. We suggest creating a small directory
+for this purpose for instance under the subdirectory <code>artifacts/testnet/myOwnVasp</code> to hold all these files and this config.yaml.</p>
+<p>Though strictly not required to connect to the TESTNET, it is suggested to use the same gRPC and admin ports than those
+that the TESTNET nodes use, namely 8888 for gRPC traffic and 9999 for admin HTTPS calls.</p>
+<p>The hostname is not relevant for connecting to the TESTNET.</p>
+<h3 id="test-certificate-private-key-and-chain-of-trust">Test certificate, private key and chain of trust</h3>
+<p>Note that the TESTNET PKI is currently in flux, so the root and issuing CA's may still change. To retrieve your
+test certificate and private key, visit our TESTNET certificate portal page:</p>
+<blockquote>
+<p><a href="http://testnet.trisa.io">TESTNET Portal Page</a></p>
+</blockquote>
+<p>You will need to login using your Github account. You can generate as many test certificates as you want,
+there are currently no rate limits implemented. Please read the rest of this section before generating your
+key and certificate.</p>
+<blockquote>
+<h5 id="note">NOTE</h5>
+<p>TRISA <strong>PRODUCTION</strong> SSL certificates will be issued following standard industry practices and artifacts.
+I.e. VASPs will have to submit a SSL CSR as part of their TRISA certification process.
+This TESTNET setup is merely a convenience to get developers up and running as quickly as possible.</p>
+</blockquote>
+<h4 id="servercrt">server.crt</h4>
+<p>Create a certificate file, e.g. <strong>server.crt</strong> in the before established directory and copy everything between</p>
+<pre><code>-----BEGIN CERTIFICATE-----
+</code></pre><p>and</p>
+<pre><code>-----END CERTIFICATE-----
+</code></pre><p>including both tags from the newcert portal page and paste it into this certificate file.</p>
+<h4 id="serverkey">server.key</h4>
+<p>Create a key file, e.g. <strong>server.key</strong> in the before established directory and copy everything between</p>
+<pre><code>-----BEGIN RSA PRIVATE KEY-----
+</code></pre><p>and</p>
+<pre><code>-----END RSA PRIVATE KEY-----
+</code></pre><p>including both tags from the newcert portal page and paste it into this key file.</p>
+<h4 id="trustchain">trust.chain</h4>
+<p>Lastly, your TRISA node needs to know who to trust. For the production systems, the chain of trust will be retrieved
+from embedded root CAs and external services they host. However for development purpose the chain of trust is passed
+to the node in the form of a file containing the certificates of the trusted CAs.</p>
+<p><a href="/testnet/config/trust.chain"><strong>Click here to download and save the trust.chain file</strong></a> containing the list of the 3 CA certificates that are being used for the TRISA TESTNET and save it to your VASP configuration directory.</p>
+<h3 id="verifying-the-configuration">Verifying the configuration</h3>
+<p>At this point the VASP configuration directory, e.g. <code>artifacts/testnet/myOwnVasp</code>, you created should have the following files:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">config.yaml
+server.crt
+server.key
+trust.chain
+</code></pre></div><p>And each of them should have their respective, configuration, certificate, private key and chain of trust.</p>
+<h2 id="running-your-vasp-node">Running your VASP node</h2>
+<p>Running the following command in the root of the cloned repo and assuming you created the above files in the
+<code>artifacts/testnet/myOwnVasp</code> subdirectory, should start your VASP node and allow it to connect to the TRISA
+TESTNET:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">bazel run --run_under<span class="o">=</span><span class="s2">&#34;</span><span class="s2">cd </span><span class="nv">$PWD</span><span class="s2">/artifacts/testnet/myOwnVasp &amp;&amp; </span><span class="s2">&#34;</span> //cmd/trisa -- server --config config.yaml
+</code></pre></div><p>The output should look something like this:</p>
+<pre><code>INFO: Build option --run_under has changed, discarding analysis cache.
+INFO: Analyzed target //cmd/trisa:trisa (0 packages loaded, 7874 targets configured).
+INFO: Found 1 target...
+Target //cmd/trisa:trisa up-to-date:
+  bazel-bin/cmd/trisa/darwin_amd64_stripped/trisa
+INFO: Elapsed time: 0.538s, Critical Path: 0.02s
+INFO: 0 processes.
+INFO: Build completed successfully, 1 total action
+INFO: Running command line: /bin/bash -c 'cd /Users/frank/go/src/github.com/trisacrypto/trisa/artifacts/testnet/myOwnVasp &amp;&amp;  bazel-bINFO: Build completed successfully, 1 total action
+INFO[0000] starting TRISA admin server                   component=admin port=&quot;:9999&quot; tls=listening
+INFO[0000] starting TRISA server                         component=grpc port=&quot;:8888&quot; tls=listening
+</code></pre><h2 id="testing-your-testnet-connected-vasp">Testing your TESTNET connected VASP</h2>
+<p>While your node is running, let's see if we can connect to it and have it send a command to one of the TRISA
+TESTNET vasps. Open another terminal window and execute the following command:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">curl -ks <span class="s2">&#34;https://127.0.0.1:9999/send?target=vasp3.testnet.trisa.io:8888&#34;</span>
+</code></pre></div><p>This command will connect to your local machine on port 9999 (the admin port) and send a test message to vasp3.testnet.trisa.io
+using gRPC port 8888. The curl command output will be a <code>'.%'</code> if everything went fine.</p>
+<p>Your node should have logged some output like this:</p>
+<pre><code>INFO[1028] sent transaction dadb719d-261f-47b1-a5b7-99326b90419a to vasp3.testnet.trisa.io:8888  identity=&quot;first_name:\&quot;John\&quot; last_name:\&quot;Doe\&quot; ssn:\&quot;001-0434-4983\&quot; state:\&quot;CA\&quot; driver_license:\&quot;FA-387463\&quot; &quot; identity-type=trisa.identity.us.v1alpha1.Identity network=&quot;source:\&quot;ae8a7287-78ef-4b09-a71f-71d38f929127\&quot; destination:\&quot;9baee60d-36b6-4dbc-8c9a-6216bb04fadf\&quot; &quot; network-type=trisa.data.bitcoin.v1alpha1.Data
+INFO[1028] protocol envelope for incomingtransaction dadb719d-261f-47b1-a5b7-99326b90419a  direction=incoming enc_algo=AES256_GCM enc_blob=&quot;[206 225 79 54 251 177 103 181 203 81 108 253 28 45 93 142 203 111 242 142 104 29 168 106 81 73 14 229 47 206 247 163 227 108 79 165 3 217 190 188 185 13 175 97 6 121 181 87 200 245 138 91 79 216 193 92 232 76 15 214 211 66 157 205 61 100 79 86 69 144 130 107 186 31 155 118 240 183 192 113 136 250 41 169 131 112 192 183 30 88 107 144 125 60 8 242 204 223 109 57 240 70 249 180 142 95 92 141 227 109 18 32 26 175 9 223 31 68 22 40 100 252 237 120 6 136]&quot; hmac=&quot;[223 69 96 218 116 1 202 106 4 50 98 71 166 254 125 210 18 17 184 212 147 204 160 67 74 115 227 192 134 99 120 90]&quot; hmac_algo=HMAC_SHA256
+INFO[1028] received transaction confirmation for dadb719d-261f-47b1-a5b7-99326b90419a  identity=&quot;first_name:\&quot;Jane\&quot; last_name:\&quot;Foe\&quot; national_number:\&quot;109-800211-69\&quot; city_of_birth:\&quot;Zwevezele\&quot; &quot; identity-type=trisa.identity.be.v1alpha1.Identity
+</code></pre><p>If you see some output like this, your local VASP node is able to connect to the TRISA TESTNET and you can start developing.</p>
+<div class="edit-meta">
+
+<br><a href="https://github.com/trisacrypto/trisa/edit/master/docs/content/getting_started/testnet.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="/getting_started/dev/" title="Development"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Development</a>
+<a class="nav nav-next" href="/trisa_improvement_proposal/" title="TRISA Improvement Proposals">Next - TRISA Improvement Proposals <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main><div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="https://trisacrypto.github.io/">Home</a></li>
+
+<li class=""><a href="/architecture/">Architecture</a>
+  
+</li>
+
+<li class=""><a href="/conference/">TRISA Conference 2019</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="/conference/hackathon/">Hackathon</a></li>
+</ul>
+  
+</li>
+
+<li class="parent"><a href="/getting_started/">Getting Started</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="/getting_started/demo/">Demo</a></li>
+<li class=""><a href="/getting_started/dev/">Development</a></li>
+<li class="active"><a href="/getting_started/testnet/">TRISA TESTNET</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="/trisa_improvement_proposal/">TRISA Improvement Proposals</a>
+  
+</li>
+
+<li class=""><a href="/contributing/">Contributing</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="/contributing/bylaws/">Bylaws</a></li>
+<li class=""><a href="/contributing/documentation/">Documentation</a></li>
+<li class=""><a href="/contributing/license/">License</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Demo - TRISA</title>
+<meta name="description" content="Travel Rule Information Sharing Architecture for Virtual Asset Service Providers">
+<meta name="generator" content="Hugo 0.61.0" />
+<link href="https://trisacrypto.github.io/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://trisacrypto.github.io/getting_started/demo/">
+<link rel="stylesheet" href="https://trisacrypto.github.io/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://trisacrypto.github.io/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://trisacrypto.github.io/js/bundle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151235008-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-151235008-1');
+</script>
+<style>
+:root {}
+</style>
+<meta property="og:title" content="Demo" />
+<meta property="og:description" content="Overview The demo environment can be run in two different modes:
+ In standalone mode using docker In development mode running locally  Both environments will handle the setup of a root CA, two subordinate issuing CA&#39;s and 3 different VASP configuration. The first two VASP certificates are issues by the first subordinate CA, the third one by the second subordinate CA.
+Standalone Mode This is the easiest way to get a demo environment up-and-running as the only requirement is having docker and docker-compose installed on your system." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://trisacrypto.github.io/getting_started/demo/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Demo"/>
+<meta name="twitter:description" content="Overview The demo environment can be run in two different modes:
+ In standalone mode using docker In development mode running locally  Both environments will handle the setup of a root CA, two subordinate issuing CA&#39;s and 3 different VASP configuration. The first two VASP certificates are issues by the first subordinate CA, the third one by the second subordinate CA.
+Standalone Mode This is the easiest way to get a demo environment up-and-running as the only requirement is having docker and docker-compose installed on your system."/>
+<meta itemprop="name" content="Demo">
+<meta itemprop="description" content="Overview The demo environment can be run in two different modes:
+ In standalone mode using docker In development mode running locally  Both environments will handle the setup of a root CA, two subordinate issuing CA&#39;s and 3 different VASP configuration. The first two VASP certificates are issues by the first subordinate CA, the third one by the second subordinate CA.
+Standalone Mode This is the easiest way to get a demo environment up-and-running as the only requirement is having docker and docker-compose installed on your system.">
+
+<meta itemprop="wordCount" content="1200">
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>TRISA</h1>
+<a href="https://github.com/trisacrypto/trisa" class="github"><i class="fab fa-github"></i></a>
+<p class="description">Travel Rule Information Sharing Architecture for Virtual Asset Service Providers</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/white-papers/white-paper-trisa-v5.pdf">White Paper</a></li>
+<li><a href="/architecture">Architecture</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>Demo</h1>
+<h2 id="overview">Overview</h2>
+<p>The demo environment can be run in two different modes:</p>
+<ol>
+<li>In standalone mode using docker</li>
+<li>In development mode running locally</li>
+</ol>
+<p>Both environments will handle the setup of a root CA, two subordinate issuing CA's and
+3 different VASP configuration. The first two VASP certificates are issues by the first
+subordinate CA, the third one by the second subordinate CA.</p>
+<h2 id="standalone-mode">Standalone Mode</h2>
+<p>This is the easiest way to get a demo environment up-and-running as the only requirement
+is having <code>docker</code> and <code>docker-compose</code> installed on your system. No additional build tools
+are necessary.</p>
+<p>Note that the standalone mode does not have the ability to make local code changes and test
+drive them locally. To accomplish that, refer to Development Mode below.</p>
+<h3 id="starting-the-demo">Starting the demo</h3>
+<ol>
+<li>Refer to the <a href="/contributing/documentation/">Setup your git directory</a> section to checkout the
+code repository.</li>
+<li>Make sure you have <code>docker</code> and <code>docker-compose</code> installed on your system.</li>
+<li>Execute <code>make demo-docker</code> to spool up the VASP servers</li>
+</ol>
+<p>Be patient as your system will download some docker images to setup the PKI environment and
+prepare the VASP configurations. Wait until the VASP servers are reporting they are running.</p>
+<p>Example output:</p>
+<pre><code>Creating trisa_vasp1_1 ... done
+Creating trisa_vasp2_1 ... done
+Creating trisa_vasp3_1 ... done
+Attaching to trisa_vasp2_1, trisa_vasp1_1, trisa_vasp3_1
+vasp2_1  | time=&quot;2019-11-06T17:02:45Z&quot; level=info msg=&quot;starting TRISA admin server&quot; component=admin port=&quot;:8592&quot; tls=listening
+vasp2_1  | time=&quot;2019-11-06T17:02:45Z&quot; level=info msg=&quot;starting TRISA server&quot; component=grpc port=&quot;:8092&quot; tls=listening
+vasp1_1  | time=&quot;2019-11-06T17:02:45Z&quot; level=info msg=&quot;starting TRISA admin server&quot; component=admin port=&quot;:8591&quot; tls=listening
+vasp1_1  | time=&quot;2019-11-06T17:02:45Z&quot; level=info msg=&quot;starting TRISA server&quot; component=grpc port=&quot;:8091&quot; tls=listening
+vasp3_1  | time=&quot;2019-11-06T17:02:45Z&quot; level=info msg=&quot;starting TRISA admin server&quot; component=admin port=&quot;:8593&quot; tls=listening
+vasp3_1  | time=&quot;2019-11-06T17:02:45Z&quot; level=info msg=&quot;starting TRISA server&quot; component=grpc port=&quot;:8093&quot; tls=listening
+</code></pre><p>Leave this terminal running. Any output generated by the VASP containers will be printed on your screen.  Checkout
+the &ldquo;Transaction Exchange&rdquo; paragraph below how to trigger traffic.</p>
+<h3 id="cleanup">Cleanup</h3>
+<p>You can terminate the containers by using <code>CTRL+C</code>. When you are done test driving the demo environment you can clean
+everything up by simply running <code>make demo-docker-cleanup</code>.</p>
+<h2 id="development-mode">Development Mode</h2>
+<p>The development mode is very similar to the Standalone Mode described above, with the only difference that the code on your
+local machine will be used. To be able to run this mode, you will need to have your development environment setup properly first.
+Refer to the <a href="/getting_started/dev/">Development section</a> for more details.</p>
+<h3 id="setup">Setup</h3>
+<p>As this mode is more flexible and tailored to be used during development, it takes a couple of additional steps which can
+be executed separately from each other to be able to develop locally using the demo setup. The steps are:</p>
+<ol>
+<li>Initialize the PKI environment as explained in the overview above.</li>
+<li>Initialize the VASP configurations</li>
+<li>Prepare your <code>/etc/hosts</code> file</li>
+<li>Start (and restart) the VASP servers using your local code</li>
+</ol>
+<h3 id="pki-environment">PKI Environment</h3>
+<p>To initialize the PKI environment, execute <code>make pki-dev-init</code>. The resulting certificates can be found in the directory
+<code>hack/etc/pki/dev/out</code>. This is only required once.</p>
+<p>Example output:</p>
+<pre><code>2019/11/06 17:30:58 [INFO] generating a new CA key and certificate from CSR
+2019/11/06 17:30:58 [INFO] generate received request
+2019/11/06 17:30:58 [INFO] received CSR
+2019/11/06 17:30:58 [INFO] generating key: rsa-2048
+2019/11/06 17:30:58 [INFO] encoded CSR
+2019/11/06 17:30:58 [INFO] signed certificate with serial number 359764710305891275363215006319074091388411046281
+2019/11/06 17:30:59 [INFO] generate received request
+2019/11/06 17:30:59 [INFO] received CSR
+2019/11/06 17:30:59 [INFO] generating key: rsa-2048
+2019/11/06 17:31:00 [INFO] encoded CSR
+2019/11/06 17:31:02 [INFO] signed certificate with serial number 336448881919945689928409804424509488290433562755
+2019/11/06 17:31:03 [INFO] generate received request
+2019/11/06 17:31:03 [INFO] received CSR
+2019/11/06 17:31:03 [INFO] generating key: rsa-2048
+2019/11/06 17:31:03 [INFO] encoded CSR
+2019/11/06 17:31:05 [INFO] signed certificate with serial number 324094491831031348264189587264902595950544179050
+2019/11/06 17:31:07 [INFO] generate received request
+2019/11/06 17:31:07 [INFO] received CSR
+2019/11/06 17:31:07 [INFO] generating key: rsa-2048
+2019/11/06 17:31:07 [INFO] encoded CSR
+2019/11/06 17:31:09 [INFO] signed certificate with serial number 103772199174043563903751416274680967299043738918
+2019/11/06 17:31:10 [INFO] generate received request
+2019/11/06 17:31:10 [INFO] received CSR
+2019/11/06 17:31:10 [INFO] generating key: rsa-2048
+2019/11/06 17:31:11 [INFO] encoded CSR
+2019/11/06 17:31:12 [INFO] signed certificate with serial number 363687821928556513700781888500231552873147929246
+2019/11/06 17:31:14 [INFO] generate received request
+2019/11/06 17:31:14 [INFO] received CSR
+2019/11/06 17:31:14 [INFO] generating key: rsa-2048
+2019/11/06 17:31:14 [INFO] encoded CSR
+2019/11/06 17:31:16 [INFO] signed certificate with serial number 20094890818264606042704470361038414783018091041
+</code></pre><h3 id="generate-vasp-configs">Generate VASP configs</h3>
+<p>Each VASP server needs its own configuration file. By executing <code>make demo-init</code> those are automatically created
+for you under the <code>artifacts/demo/vasp*</code> directories. You can use those as a reference if you want to manually
+spool up a VASP server.</p>
+<p>Note that it is advized to use the built-in PKI tooling as also the demo environment requires properly issued
+certificates. If you run into any issues down the line regarding TLS authentication errors, you probably need to
+re-initialize the PKI environment.</p>
+<p>Example VASP config file:</p>
+<pre><code>tls:
+  privateKeyFile: server.key
+  certificateFile: server.crt
+  trustChain: trust.chain
+server:
+  listenAddress: :8091
+  listenAddressAdmin: :8591
+  hostname: vasp1
+</code></pre><p>The main <code>listenAddress</code> is the port used for the gRPC peer-to-peer communication between the VASPs. The
+<code>listenAddressAdmin</code> port has a simple HTTP endpoint to trigger transaction exchanges for demo purposes.</p>
+<p>Next to the config generation, this step will also produce a binary <code>artifacts/bin/trisa</code> which you can use
+to spool up a VASP server manually if you feel for it. This binary in combination with the generated config
+files will be used by the next step.</p>
+<h3 id="dns-resolution">DNS Resolution</h3>
+<p>As we are simulating multiple VASP servers on your local machine, we will bind them to different port numbers.
+However for the mutual TLS authentication to work properly (and be able to test CRL or OSCP), we need to make
+use of distinct DNS names for each VASP.</p>
+<p>The easiest way is to add the following entries to your <code>/etc/hosts</code> file:</p>
+<pre><code>127.0.0.1 vasp1
+127.0.0.1 vasp2
+127.0.0.1 vasp3
+</code></pre><h3 id="starting-vasp-servers">Starting VASP servers</h3>
+<p>Now that we are setup, we can use <code>make demo-run</code> to start the 3 VASP servers.</p>
+<p>Example output:</p>
+<pre><code>VASP servers started. Log output can be found under github.com/trisacrypto/trisa/artifacts/demo/logs
+total 0
+-rw-r--r--  1 skymeyer  staff  0 Nov  6 09:43 vasp1.log
+-rw-r--r--  1 skymeyer  staff  0 Nov  6 09:43 vasp2.log
+-rw-r--r--  1 skymeyer  staff  0 Nov  6 09:43 vasp3.log
+</code></pre><p>The log output of each VASP process is redirected to the above mentioned log files which you can tail.
+See the next paragraph on how to trigger transaction exchanges.</p>
+<h2 id="transaction-exchange">Transaction Exchange</h2>
+<p>The procedure to trigger transaction exchanges is the same for both Standalone as Development mode. Each
+VASP has a simplistic HTTP endpoint (admin port) which you can trigger to send a transaction. Note that
+the message are currently hardcoded, but you can decide between which VAPs to create the exchange.</p>
+<p>The VASPs are using the following ports:</p>
+<ul>
+<li>vasp1: gRPC <code>:8091</code>, admin <code>:8591</code></li>
+<li>vasp2: gRPC <code>:8092</code>, admin <code>:8592</code></li>
+<li>vasp3: gRPC <code>:8093</code>, admin <code>:8593</code></li>
+</ul>
+<p>To trigger an exchange from VASP1 to VASP2:</p>
+<p><code>curl -ks &quot;https://127.0.0.1:8591/send?target=vasp3:8093&quot; &gt; /dev/null</code></p>
+<p>By changing the admin port number <code>8592</code> you can specific which VASP will initiate the exchange. The
+<code>target</code> parameter specifies to which VASP to send the transaction. To send a transaction from VASP3
+to VASP2, use:</p>
+<p><code>curl -ks &quot;https://127.0.0.1:8593/send?target=vasp2:8092&quot; &gt; /dev/null</code></p>
+<p>Observer the log output of each VASP server to see how the exchange went.</p>
+<p>Example sending VAPS:</p>
+<pre><code>msg=&quot;protocol envelope for incomingtransaction 32b25cb3-7db5-47be-b16a-326116614791&quot; direction=incoming enc_algo=AES256_GCM enc_blob=&quot;[...]&quot; hmac=&quot;[...]&quot; hmac_algo=HMAC_SHA256
+msg=&quot;received transaction 32b25cb3-7db5-47be-b16a-326116614791 from vasp1&quot; identity=&quot;first_name:\&quot;John\&quot; last_name:\&quot;Doe\&quot; ssn:\&quot;001-0434-4983\&quot; state:\&quot;CA\&quot; driver_license:\&quot;FA-387463\&quot; &quot; identity-type=trisa.identity.us.v1alpha1.Identity network=&quot;source:\&quot;38cf76d0-fcb8-4e3a-b5e9-bd65e3f1808b\&quot; destination:\&quot;3412377b-22dd-4f69-a456-9722fce95c8a\&quot; &quot; network-type=trisa.data.bitcoin.v1alpha1.Data
+msg=&quot;sent transaction response for 32b25cb3-7db5-47be-b16a-326116614791 to vasp1&quot; identity=&quot;first_name:\&quot;Jane\&quot; last_name:\&quot;Foe\&quot; national_number:\&quot;109-800211-69\&quot; city_of_birth:\&quot;Zwevezele\&quot; &quot; identity-type=trisa.identity.be.v1alpha1.Identity
+msg=&quot;protocol envelope for incomingtransaction 32b25cb3-7db5-47be-b16a-326116614791&quot; direction=outgoing enc_algo=AES256_GCM enc_blob=&quot;[...]&quot; hmac=&quot;[...]&quot; hmac_algo=HMAC_SHA256
+</code></pre><div class="edit-meta">
+
+<br><a href="https://github.com/trisacrypto/trisa/edit/master/docs/content/getting_started/demo.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="/getting_started/" title="Getting Started"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Getting Started</a>
+<a class="nav nav-next" href="/getting_started/dev/" title="Development">Next - Development <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main><div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="https://trisacrypto.github.io/">Home</a></li>
+
+<li class=""><a href="/architecture/">Architecture</a>
+  
+</li>
+
+<li class=""><a href="/conference/">TRISA Conference 2019</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="/conference/hackathon/">Hackathon</a></li>
+</ul>
+  
+</li>
+
+<li class="parent"><a href="/getting_started/">Getting Started</a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="/getting_started/demo/">Demo</a></li>
+<li class=""><a href="/getting_started/dev/">Development</a></li>
+<li class=""><a href="/getting_started/testnet/">TRISA TESTNET</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="/trisa_improvement_proposal/">TRISA Improvement Proposals</a>
+  
+</li>
+
+<li class=""><a href="/contributing/">Contributing</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="/contributing/bylaws/">Bylaws</a></li>
+<li class=""><a href="/contributing/documentation/">Documentation</a></li>
+<li class=""><a href="/contributing/license/">License</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

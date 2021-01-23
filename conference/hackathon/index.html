@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Hackathon - TRISA</title>
+<meta name="description" content="Travel Rule Information Sharing Architecture for Virtual Asset Service Providers">
+<meta name="generator" content="Hugo 0.61.0" />
+<link href="https://trisacrypto.github.io/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://trisacrypto.github.io/conference/hackathon/">
+<link rel="stylesheet" href="https://trisacrypto.github.io/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://trisacrypto.github.io/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://trisacrypto.github.io/js/bundle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151235008-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-151235008-1');
+</script>
+<style>
+:root {}
+</style>
+<meta property="og:title" content="Hackathon" />
+<meta property="og:description" content="Hackathon Slide Deck Projects &amp; Slide Decks  VASP Adress Resolution Enhancement of PII privacy for TRISA transactions Red Flagging Travel Rule Extension TrisaScan Zero Knowledge TRISA  VASP Adress Resolution VASPs need to transfer some required data when sending value to another VASP. One problem that the current implementation of TRISA does not address is recognizing or identifying an address as belonging to a VASP. This proposal complements the TRISA protocol." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://trisacrypto.github.io/conference/hackathon/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hackathon"/>
+<meta name="twitter:description" content="Hackathon Slide Deck Projects &amp; Slide Decks  VASP Adress Resolution Enhancement of PII privacy for TRISA transactions Red Flagging Travel Rule Extension TrisaScan Zero Knowledge TRISA  VASP Adress Resolution VASPs need to transfer some required data when sending value to another VASP. One problem that the current implementation of TRISA does not address is recognizing or identifying an address as belonging to a VASP. This proposal complements the TRISA protocol."/>
+<meta itemprop="name" content="Hackathon">
+<meta itemprop="description" content="Hackathon Slide Deck Projects &amp; Slide Decks  VASP Adress Resolution Enhancement of PII privacy for TRISA transactions Red Flagging Travel Rule Extension TrisaScan Zero Knowledge TRISA  VASP Adress Resolution VASPs need to transfer some required data when sending value to another VASP. One problem that the current implementation of TRISA does not address is recognizing or identifying an address as belonging to a VASP. This proposal complements the TRISA protocol.">
+
+<meta itemprop="wordCount" content="300">
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>TRISA</h1>
+<a href="https://github.com/trisacrypto/trisa" class="github"><i class="fab fa-github"></i></a>
+<p class="description">Travel Rule Information Sharing Architecture for Virtual Asset Service Providers</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/white-papers/white-paper-trisa-v5.pdf">White Paper</a></li>
+<li><a href="/architecture">Architecture</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>Hackathon</h1>
+<a href="/conference-2019/trisa-conference-hackathon-2019.pdf" class="button button-primary">
+<i class="fas fa-download"></i> Hackathon Slide Deck</a>
+<h2 id="projects--slide-decks">Projects &amp; Slide Decks</h2>
+<ul>
+<li><a href="/conference-2019/trisa_vasp_address_resolution.pdf">VASP Adress Resolution</a></li>
+<li><a href="/conference-2019/trisa_pii_enhancement.pdf">Enhancement of PII privacy for TRISA transactions</a></li>
+<li><a href="/conference-2019/trisa_redflagging.pdf">Red Flagging</a></li>
+<li><a href="/conference-2019/trisa_travel_rule_extension_trisascan.pdf">Travel Rule Extension TrisaScan</a></li>
+<li><a href="/conference-2019/trisa_zk.pdf">Zero Knowledge TRISA</a></li>
+</ul>
+<h3 id="vasp-adress-resolution">VASP Adress Resolution</h3>
+<p>VASPs need to transfer some required data when sending value to another VASP.
+One problem that the current implementation of TRISA does not address is recognizing or
+identifying an address as belonging to a VASP. This proposal complements the TRISA protocol.</p>
+<h3 id="enhancement-of-pii-privacy-for-trisa-transactions">Enhancement of PII privacy for TRISA transactions</h3>
+<p>TRISA suggests a VASP to expose the PII of any account holder listed in a proposed transaction.
+This runs directly contrary to one of the key benefits of digital currency which is the ability
+execute low-value transactions with low friction.</p>
+<h3 id="red-flagging">Red Flagging</h3>
+<p>Determine and return transactions (incl participants) where the use of mixers or other obfuscation techniques (e.g. transaction segmentation, &lsquo;hawallah&rsquo;, etc.) are detected - which we refere to as &ldquo;red flagged&rdquo; transactions.</p>
+<h3 id="travel-rule-extension-trisascan">Travel Rule Extension TrisaScan</h3>
+<p>We want to make Travel Rule benefit to user, make it more simple for user to see
+VASP, individual information in etherscan. This solution integrates with TRISA library.</p>
+<h3 id="zero-knowledge-trisa">Zero Knowledge TRISA</h3>
+<p>Our constraints:</p>
+<ul>
+<li>We want all VASPs to use TRISA</li>
+<li>Travel Rule: Counterparty PII recorded before a Tx is sent</li>
+<li>All ICOs accepting Fiat etc. are VASPs</li>
+<li>… How many ICOs in 2018 were Scams&hellip;</li>
+</ul>
+<p>So we’s have to bottleneck access to TRISA, but</p>
+<ul>
+<li>this limits adoption of TRISA</li>
+<li>This delegates trust to the TRISA gatekeepers</li>
+<li>who may have different incentives than users &amp; VASPs</li>
+<li>Small Exchanges can be sold&hellip;</li>
+</ul>
+<h2 id="results">Results</h2>
+<table>
+<thead>
+<tr>
+<th>Team</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VASP Adress Resolution</td>
+<td>45.5</td>
+</tr>
+<tr>
+<td>Enhancement of PII privacy for TRISA transactions</td>
+<td>52</td>
+</tr>
+<tr>
+<td>Red Flagging</td>
+<td>48</td>
+</tr>
+<tr>
+<td>Travel Rule Extension TrisaScan</td>
+<td>45</td>
+</tr>
+<tr>
+<td>Zero Knowledge TRISA</td>
+<td>49.5</td>
+</tr>
+</tbody>
+</table>
+<h2 id="follow-up">Follow-up</h2>
+<ul>
+<li>Monthly online meetup</li>
+<li>Elect board members</li>
+<li>Bylaws proposal</li>
+<li>Setup trisacrypto organization</li>
+<li>Workout production PKI</li>
+<li>Formalize design (issue tracking)</li>
+</ul>
+<div class="edit-meta">
+
+<br><a href="https://github.com/trisacrypto/trisa/edit/master/docs/content/conference/hackathon.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="/conference/" title="TRISA Conference 2019"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - TRISA Conference 2019</a>
+<a class="nav nav-next" href="/getting_started/" title="Getting Started">Next - Getting Started <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main><div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="https://trisacrypto.github.io/">Home</a></li>
+
+<li class=""><a href="/architecture/">Architecture</a>
+  
+</li>
+
+<li class="parent"><a href="/conference/">TRISA Conference 2019</a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="/conference/hackathon/">Hackathon</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="/getting_started/">Getting Started</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="/getting_started/demo/">Demo</a></li>
+<li class=""><a href="/getting_started/dev/">Development</a></li>
+<li class=""><a href="/getting_started/testnet/">TRISA TESTNET</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="/trisa_improvement_proposal/">TRISA Improvement Proposals</a>
+  
+</li>
+
+<li class=""><a href="/contributing/">Contributing</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="/contributing/bylaws/">Bylaws</a></li>
+<li class=""><a href="/contributing/documentation/">Documentation</a></li>
+<li class=""><a href="/contributing/license/">License</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

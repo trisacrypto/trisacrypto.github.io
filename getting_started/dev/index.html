@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Development - TRISA</title>
+<meta name="description" content="Travel Rule Information Sharing Architecture for Virtual Asset Service Providers">
+<meta name="generator" content="Hugo 0.61.0" />
+<link href="https://trisacrypto.github.io/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://trisacrypto.github.io/getting_started/dev/">
+<link rel="stylesheet" href="https://trisacrypto.github.io/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://trisacrypto.github.io/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://trisacrypto.github.io/js/bundle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151235008-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-151235008-1');
+</script>
+<style>
+:root {}
+</style>
+<meta property="og:title" content="Development" />
+<meta property="og:description" content="Build System The TRISA server is currently written in Go. The code repository is setup with Bazel for the compilation and dockerization. Installing Bazel is the primary requirement to get started with development. Bazel will install all the necessary tooling and dependencies completely sandboxed on your system. There is no real need to install Go, protobuf or any other requirements. As everything is sandboxed, Bazel will not disturb any existing tooling on your local machine either." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://trisacrypto.github.io/getting_started/dev/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Development"/>
+<meta name="twitter:description" content="Build System The TRISA server is currently written in Go. The code repository is setup with Bazel for the compilation and dockerization. Installing Bazel is the primary requirement to get started with development. Bazel will install all the necessary tooling and dependencies completely sandboxed on your system. There is no real need to install Go, protobuf or any other requirements. As everything is sandboxed, Bazel will not disturb any existing tooling on your local machine either."/>
+<meta itemprop="name" content="Development">
+<meta itemprop="description" content="Build System The TRISA server is currently written in Go. The code repository is setup with Bazel for the compilation and dockerization. Installing Bazel is the primary requirement to get started with development. Bazel will install all the necessary tooling and dependencies completely sandboxed on your system. There is no real need to install Go, protobuf or any other requirements. As everything is sandboxed, Bazel will not disturb any existing tooling on your local machine either.">
+
+<meta itemprop="wordCount" content="324">
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>TRISA</h1>
+<a href="https://github.com/trisacrypto/trisa" class="github"><i class="fab fa-github"></i></a>
+<p class="description">Travel Rule Information Sharing Architecture for Virtual Asset Service Providers</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/white-papers/white-paper-trisa-v5.pdf">White Paper</a></li>
+<li><a href="/architecture">Architecture</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>Development</h1>
+<h2 id="build-system">Build System</h2>
+<p>The TRISA server is currently written in Go. The code repository is setup with Bazel for the compilation
+and dockerization. Installing Bazel is the primary requirement to get started with development. Bazel will
+install all the necessary tooling and dependencies completely sandboxed on your system. There is no real
+need to install Go, protobuf or any other requirements. As everything is sandboxed, Bazel will not disturb
+any existing tooling on your local machine either.</p>
+<h3 id="bazelisk">Bazelisk</h3>
+<p>The TRISA repository is compatible to use <code>bazelisk</code>, which is a Bazel launcher. The usage of <code>bazelisk</code> is
+recommended as it will take care of using the proper Bazel version regardless if Bazel is already installed
+on your system.</p>
+<p>Grab the latest release binary from the <a href="https://github.com/bazelbuild/bazelisk/releases">bazelisk repository</a>
+and put it in your <code>$PATH</code>. Once the binary is available, the TRISA build system will automatically use the
+<code>bazelisk</code> launcher for all your build tasks. The launcher will always use the correct Bazel version which
+is current for the TRISA build system.</p>
+<h4 id="bazel">Bazel</h4>
+<p>You can skip this step when using <code>bazelisk</code> as described above. If you choose to maintain your own bazel
+installation, you can install Bazel on OSX as follows. Mind that you will need to ensure your Bazel version
+is compatible with the TRISA repository.</p>
+<ol>
+<li>Make sure you don't have bazel intalled using core brew: <code>brew uninstall bazel</code></li>
+<li>Install bazel using <code>brew tap bazelbuild/tap</code> followed by <code>brew install bazelbuild/tap/bazel</code></li>
+</ol>
+<p>Verify your installation using <code>bazel --version</code>.</p>
+<p>For other platforms, consult the <a href="https://docs.bazel.build/versions/master/install.html">Bazel Installation Instructions</a>.</p>
+<h3 id="additional-requirements">Additional Requirements</h3>
+<ul>
+<li>Ensure <code>docker</code> and <code>docker-compose</code> are installed</li>
+<li>A regular build environment with <code>make</code> is advized as that will make it easier to consume the convenience targets we have setup.</li>
+</ul>
+<h2 id="building-the-code">Building the Code</h2>
+<p><strong>NOTE: it can take a while the first time bazel runs as it needs to download and compile the dependencies</strong></p>
+<p>The <code>Makefile</code> has some additional documentation for each available target. The primary targets for building are:</p>
+<ul>
+<li><code>make build</code></li>
+<li><code>make test</code></li>
+</ul>
+<div class="edit-meta">
+
+<br><a href="https://github.com/trisacrypto/trisa/edit/master/docs/content/getting_started/dev.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="/getting_started/demo/" title="Demo"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Demo</a>
+<a class="nav nav-next" href="/getting_started/testnet/" title="TRISA TESTNET">Next - TRISA TESTNET <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main><div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="https://trisacrypto.github.io/">Home</a></li>
+
+<li class=""><a href="/architecture/">Architecture</a>
+  
+</li>
+
+<li class=""><a href="/conference/">TRISA Conference 2019</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="/conference/hackathon/">Hackathon</a></li>
+</ul>
+  
+</li>
+
+<li class="parent"><a href="/getting_started/">Getting Started</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="/getting_started/demo/">Demo</a></li>
+<li class="active"><a href="/getting_started/dev/">Development</a></li>
+<li class=""><a href="/getting_started/testnet/">TRISA TESTNET</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="/trisa_improvement_proposal/">TRISA Improvement Proposals</a>
+  
+</li>
+
+<li class=""><a href="/contributing/">Contributing</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="/contributing/bylaws/">Bylaws</a></li>
+<li class=""><a href="/contributing/documentation/">Documentation</a></li>
+<li class=""><a href="/contributing/license/">License</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

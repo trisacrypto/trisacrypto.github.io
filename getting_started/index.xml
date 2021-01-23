@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Getting Started on TRISA</title>
+    <link>https://trisacrypto.github.io/getting_started/</link>
+    <description>Recent content in Getting Started on TRISA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://trisacrypto.github.io/getting_started/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Demo</title>
+      <link>https://trisacrypto.github.io/getting_started/demo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://trisacrypto.github.io/getting_started/demo/</guid>
+      <description>Overview The demo environment can be run in two different modes:
+ In standalone mode using docker In development mode running locally  Both environments will handle the setup of a root CA, two subordinate issuing CA&#39;s and 3 different VASP configuration. The first two VASP certificates are issues by the first subordinate CA, the third one by the second subordinate CA.
+Standalone Mode This is the easiest way to get a demo environment up-and-running as the only requirement is having docker and docker-compose installed on your system.</description>
+    </item>
+    
+    <item>
+      <title>Development</title>
+      <link>https://trisacrypto.github.io/getting_started/dev/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://trisacrypto.github.io/getting_started/dev/</guid>
+      <description>Build System The TRISA server is currently written in Go. The code repository is setup with Bazel for the compilation and dockerization. Installing Bazel is the primary requirement to get started with development. Bazel will install all the necessary tooling and dependencies completely sandboxed on your system. There is no real need to install Go, protobuf or any other requirements. As everything is sandboxed, Bazel will not disturb any existing tooling on your local machine either.</description>
+    </item>
+    
+    <item>
+      <title>TRISA TESTNET</title>
+      <link>https://trisacrypto.github.io/getting_started/testnet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://trisacrypto.github.io/getting_started/testnet/</guid>
+      <description>Introduction For testing purposes to develop new clients and integrations, we have a test PKI available and some VASP nodes running the latest version of TRISA server. This allows for full integration testing without disturbing the production TRISA network mesh.
+Test VASP nodes The following VASP nodes are available for testing:
+ vasp1.testnet.trisa.io vasp2.testnet.trisa.io vasp3.testnet.trisa.io  Each VASP uses port 8888 for the gRPC peer-to-peer communication and port 9999 for its admin endpoints.</description>
+    </item>
+    
+  </channel>
+</rss>
