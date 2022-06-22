@@ -9,4 +9,8 @@ By providing discovery services for finding TRISA endpoints By issuing mTLS cert
 If you&amp;rsquo;re a developer whose organization is using (or planning to adopt) the TRISA protocol, this section is for you!
 Navigating the Repository This repository contains a gRPC implementation of the TRISA protocol as described by the white paper, which leverages protocol buffers and Golang.
 The proto folder contains the core RPC definitions, including:
-the interVASP Messaging Standard (IVMS) message definitions, which serve as the basis for how two VASP peers should mutually describe entities involved in cryptographic transfers, including names, locations, and government identifiers.</description></item><item><title>Reference</title><link>https://trisa.dev/reference/</link><pubDate>Mon, 14 Jun 2021 15:59:09 -0500</pubDate><guid>https://trisa.dev/reference/</guid><description>Stay tuned!</description></item></channel></rss>
+the interVASP Messaging Standard (IVMS) message definitions, which serve as the basis for how two VASP peers should mutually describe entities involved in cryptographic transfers, including names, locations, and government identifiers.</description></item><item><title>Reference</title><link>https://trisa.dev/reference/</link><pubDate>Mon, 14 Jun 2021 15:59:09 -0500</pubDate><guid>https://trisa.dev/reference/</guid><description>Where to look for more information and assistance: Submit your registration to join the TRISA Network: TRISA Global Directory Service
+Complete the certificate registration form: Certificate Registration
+Connect with other VASPs, regulators, and engineers working on Travel Rule compliance: TRISA Slack
+Learn the basics about TRISA and how it helps VASPs with Travel Rule compliance: Getting Started with TRISA Video Series
+Check to see if your data is compatible with the IVMS 101-standard: IVMS 101 Validator</description></item></channel></rss>
